@@ -1,0 +1,21 @@
+{
+  "courses": [
+    {
+      "courseId": "1;",
+      "courseName": "Html Course",
+      "autherName": "Faiq"
+
+    },
+    {
+      "courseId": "2;",
+      "courseName": "ASP.Net Course",
+      "autherName": "Laiq"
+    },
+    {
+      "courseId": "3;",
+      "courseName": "A Course",
+      "autherName": "Laiq"
+    }
+  ]
+
+}

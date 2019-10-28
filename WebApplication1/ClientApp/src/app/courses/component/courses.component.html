@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title></title>
+</head>
+<body>
+  <h1>
+    Current value:{{toggelCourse}}
+  </h1>
+  <input type="button" (click)="ShowHide()" value="ShowHide" />
+  <br />
+  <input type="button" (click)="loadAllCourse()" value="Load Courses" />
+  <!--<div>
+    <table>
+      <tr>
+        <th>
+          course Id
+        </th>
+        <th>
+          course Name
+        </th>
+        <th>
+          Auther Name
+        </th>
+        <th>
+
+        </th>
+      </tr>
+      <tr *ngFor="let course of allcourses.courses">
+        <td>
+          {{course.courseId}}
+        </td>
+        <td>
+          {{course.courseName}}
+        </td>
+        <td>
+          {{course.autherName}}
+        </td>
+        <td>
+          <input type="button" value="Edit" (click)="editCourse(course)" />
+        </td>
+      </tr>
+    </table>
+  </div>-->
+  <div>
+    <courses-edit></courses-edit>
+  </div>
+
+</body>
+</html>
