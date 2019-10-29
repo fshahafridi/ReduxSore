@@ -11,7 +11,7 @@ var initialState = exports.appAdapter.getInitialState();
 function AppReducer(state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
-        case app_actions_1.SharedActionTypes.ChangeUserName:
+        case app_actions_1.AppActionTypes.ChangeUserName:
             return exports.appAdapter.addOne(action.payload, state);
         default:
             return state;
@@ -22,4 +22,4 @@ exports.AppReducer = AppReducer;
 // get the selectors
 var _a = exports.appAdapter.getSelectors(), selectIds = _a.selectIds, selectEntities = _a.selectEntities, selectAll = _a.selectAll, selectTotal = _a.selectTotal;
 exports.loadAppState = selectAll;
-//# sourceMappingURL=app.reducer.js.map
+//# sourceMappingURL=Spinner.reducer.js.map

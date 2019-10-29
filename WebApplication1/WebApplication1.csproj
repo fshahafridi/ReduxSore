@@ -38,7 +38,7 @@
     <None Remove="ClientApp\src\app\courses\store\actions\actions.ts" />
     <None Remove="ClientApp\src\app\Shared\store\actions\app.actions.ts" />
     <None Remove="ClientApp\src\app\Shared\models\header.model.ts" />
-    <None Remove="ClientApp\src\app\Shared\store\reducer\app.reducer.ts" />
+    <None Remove="ClientApp\src\app\Shared\store\reducer\Spinner.reducer.ts" />
     <None Remove="ClientApp\src\app\Shared\store\selectors\app.selector.ts" />
     <None Remove="ClientApp\src\app\Shared\store\state\app.state.ts" />
   </ItemGroup>
@@ -61,7 +61,7 @@
     <TypeScriptCompile Include="ClientApp\src\app\Shared\models\header.model.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="ClientApp\src\app\Shared\store\reducer\app.reducer.ts">
+    <TypeScriptCompile Include="ClientApp\src\app\Shared\store\reducer\Spinner.reducer.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\Shared\store\selectors\app.selector.ts">
