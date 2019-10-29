@@ -1,6 +1,6 @@
 
 import { CourseAction, CoursesActionTypes } from '../actions/actions';
-import { CourseState } from '../state/courses.state'
+import { CourseListingState } from '../state/courses.state'
 import { createEntityAdapter } from '@ngrx/entity';
 import { courseModel } from '../../models/courses.model';
 
@@ -12,7 +12,7 @@ export const courseAdapter = createEntityAdapter<courseModel>({
 
 });
 
-const initialState: CourseState = courseAdapter.getInitialState({
+const initialState: CourseListingState = courseAdapter.getInitialState({
 
     selectedCourseId: null
 
@@ -20,11 +20,12 @@ const initialState: CourseState = courseAdapter.getInitialState({
 
 
 
-export function CourseReducer(state = initialState, action: CourseAction): CourseState{
+export function CourseReducer(state = initialState, action: CourseAction): CourseListingState{
     switch (action.type) {
 
         case CoursesActionTypes.LoadAllCoursesSuccess:
 
+           // return state;
             return courseAdapter.addAll(action.payload, state);
 
         //case CoursesActionTypes.SetCurrentCourse:

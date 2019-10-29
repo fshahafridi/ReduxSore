@@ -2,12 +2,19 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var actions_1 = require("../actions/actions");
 var entity_1 = require("@ngrx/entity");
-exports.courseAdapter = entity_1.createEntityAdapter();
-var initialState = exports.courseAdapter.getInitialState();
+exports.courseAdapter = entity_1.createEntityAdapter({
+    // This property must be set to the Primary Key in The Collection. If the Collection contains the Primary Key with Name "id" then it is not required...
+    //Otherwise map the Id from the collection to the selectId
+    selectId: function (course) { return course.courseId; }
+});
+var initialState = exports.courseAdapter.getInitialState({
+    selectedCourseId: null
+});
 function CourseReducer(state, action) {
     if (state === void 0) { state = initialState; }
     switch (action.type) {
         case actions_1.CoursesActionTypes.LoadAllCoursesSuccess:
+            // return state;
             return exports.courseAdapter.addAll(action.payload, state);
         //case CoursesActionTypes.SetCurrentCourse:
         //    return {

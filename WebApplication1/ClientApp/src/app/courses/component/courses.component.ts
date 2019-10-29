@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import * as CoursesAction from '../store/actions/actions'
-import * as fromCourses from '../store/state/courses.state'
+import * as fromCourses from '../store'
 import * as fromSelectors from '../store/selectors/course.selector'
 import { courseModel } from "../models/courses.model";
 import { takeWhile } from "rxjs/operators";
@@ -43,6 +43,9 @@ export class CoursesComponent implements OnInit, OnDestroy {
                 allcourses => {
                     this.allcourses = allcourses;
                 });
+
+       // this.store.select(fromSelectors.selectAllCourses);
+       
     }
 
     ShowHide() {

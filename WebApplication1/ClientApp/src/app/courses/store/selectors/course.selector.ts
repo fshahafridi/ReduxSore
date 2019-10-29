@@ -1,24 +1,17 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { CourseState } from "../state/courses.state";
+import { CourseListingState } from "../state/courses.state";
 import * as courseSelectors from '../reducers/courses.reducer'
+import { CourseModuleState } from "..";
 
-const selectCourseFeatureState = createFeatureSelector<CourseState>('courses');
 
-//export const isCourseAvailable = createSelector(
-//    getCourseFeatureState,
-//    state => state.isCourseAvailable
-//);
-//export const getCourse = createSelector(
-//    getCourseFeatureState,
-//    state => state.selectedCourse
-//);
-//export const getAllCourse = createSelector(
-//    getCourseFeatureState,
-//    state => state.
-//);
+//The main store node is CourseModuleState(on the courses feature module). we neeed to select courses node.
+export const getReferencesState = createFeatureSelector<CourseModuleState>('courses');
+//select the course node from the store..
+export const getCourseListingState = createSelector(getReferencesState, state => state.courses);
+
 
 export const selectAllCourses = createSelector(
-    selectCourseFeatureState,
+    getCourseListingState,
     courseSelectors.loadAllCourses
 );
 

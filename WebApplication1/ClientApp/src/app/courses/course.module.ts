@@ -5,12 +5,13 @@ import { SharedModule } from '../shared/shared.module'
 
 import { CoursesComponent } from './component/courses.component'
 import { StoreModule } from '@ngrx/store';
-import { CourseReducer } from './store/reducers/courses.reducer'
 import { CourseService } from './services/course.service';
 import { EffectsModule } from '@ngrx/effects';
 import { CourseEffects } from './store/effects/courses.effects';
 import { CommonModule } from '@angular/common';
 import { CoursesEdit } from './component/courses-edit.component';
+import { CourseReducer } from './store/reducers/courses.reducer';
+import { reducers } from './store';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { CoursesEdit } from './component/courses-edit.component';
     imports: [
         CommonModule,
         SharedModule,
-        StoreModule.forFeature('courses', CourseReducer),
+     //   StoreModule.forFeature('courses', CourseReducer),
+        StoreModule.forFeature('courses',reducers),
         EffectsModule.forFeature([CourseEffects]),
     RouterModule.forChild([
         { path: '', component: CoursesComponent }

@@ -14,7 +14,6 @@ import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment';
-import { SharedModule } from './Shared/shared.module';
 
 
 @NgModule({
@@ -29,8 +28,9 @@ import { SharedModule } from './Shared/shared.module';
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         HttpClientModule,
         FormsModule,
-        SharedModule.forRoot(),
-        
+        //SharedModule.forRoot(),
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([]),
         StoreDevtoolsModule.instrument({
             name: 'Test Redux',
             maxAge: 25,

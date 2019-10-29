@@ -9,8 +9,8 @@ import { EffectsModule } from "@ngrx/effects";
         HeaderComponent,
     ],
     imports: [
-        StoreModule.forRoot(AppReducer),
-        EffectsModule.forRoot([]),
+       //   StoreModule.forRoot(AppReducer),
+         // EffectsModule.forRoot([]),
     ],
     exports: [HeaderComponent],
    
