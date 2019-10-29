@@ -5,9 +5,18 @@ import { createEntityAdapter } from '@ngrx/entity';
 import { courseModel } from '../../models/courses.model';
 
 
-export const courseAdapter = createEntityAdapter<courseModel>();
+export const courseAdapter = createEntityAdapter<courseModel>({
+    // This property must be set to the Primary Key in The Collection. If the Collection contains the Primary Key with Name "id" then it is not required...
+    //Otherwise map the Id from the collection to the selectId
+    selectId: (course: courseModel) => course.courseId
 
-const initialState: CourseState = courseAdapter.getInitialState();
+});
+
+const initialState: CourseState = courseAdapter.getInitialState({
+
+    selectedCourseId: null
+
+});
 
 
 

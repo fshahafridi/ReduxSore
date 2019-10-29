@@ -1,7 +1,7 @@
 
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-
+import { SharedModule } from '../shared/shared.module'
 
 import { CoursesComponent } from './component/courses.component'
 import { StoreModule } from '@ngrx/store';
@@ -19,6 +19,7 @@ import { CoursesEdit } from './component/courses-edit.component';
   ],
     imports: [
         CommonModule,
+        SharedModule,
         StoreModule.forFeature('courses', CourseReducer),
         EffectsModule.forFeature([CourseEffects]),
     RouterModule.forChild([

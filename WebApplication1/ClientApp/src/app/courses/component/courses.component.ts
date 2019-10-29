@@ -18,12 +18,17 @@ export class CoursesComponent implements OnInit, OnDestroy {
 
     allcourses: courseModel[];
     componentActive: boolean = true;
-    constructor(private store: Store<fromCourses.CourseState>) {
+    constructor(private store: Store<fromCourses.State>) {
     }
 
     ngOnInit(): void {
 
+        //Suscribe to the Changes in the store...
         this.initStore();
+        //Load the course from Server...
+        this.loadAllCourse();
+
+
     }
     ngOnDestroy(): void {
 
@@ -31,16 +36,12 @@ export class CoursesComponent implements OnInit, OnDestroy {
     }
 
     initStore() {
-        //this.store.pipe(select(fromSelectors.isCourseAvailable),
-        //    takeWhile(() => this.componentActive)).subscribe(
-        //        isCourseAvailable => {
-        //            this.toggelCourse = isCourseAvailable
-        //        });
+        
 
         this.store.pipe(select(fromSelectors.selectAllCourses),
             takeWhile(() => this.componentActive)).subscribe(
                 allcourses => {
-                      var i= allcourses;
+                    this.allcourses = allcourses;
                 });
     }
 

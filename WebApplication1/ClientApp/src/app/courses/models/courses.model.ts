@@ -1,7 +1,7 @@
 export interface courseModel {
 
    
-    courseId: string;
+    courseId: number;
     courseName: string;
     autherName:string
 }

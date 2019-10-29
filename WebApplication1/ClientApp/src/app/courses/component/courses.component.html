@@ -6,12 +6,15 @@
 </head>
 <body>
   <h1>
-    Current value:{{toggelCourse}}
+    <h1>
+      Header From Shared Module...
+     <app-header></app-header>
+    </h1>
   </h1>
   <input type="button" (click)="ShowHide()" value="ShowHide" />
   <br />
-  <input type="button" (click)="loadAllCourse()" value="Load Courses" />
-  <!--<div>
+ 
+  <div>
     <table>
       <tr>
         <th>
@@ -27,7 +30,7 @@
 
         </th>
       </tr>
-      <tr *ngFor="let course of allcourses.courses">
+      <tr *ngFor="let course of allcourses">
         <td>
           {{course.courseId}}
         </td>
@@ -42,7 +45,7 @@
         </td>
       </tr>
     </table>
-  </div>-->
+  </div>
   <div>
     <courses-edit></courses-edit>
   </div>

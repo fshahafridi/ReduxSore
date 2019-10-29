@@ -18,7 +18,7 @@ export class CoursesEdit implements OnInit, OnDestroy {
 
     selectedCourse: courseModel;
     componentActive: boolean = true;
-    constructor(private store: Store<fromCourses.CourseState>) {
+    constructor(private store: Store<fromCourses.State>) {
     }
 
     ngOnInit(): void {
