@@ -3,6 +3,8 @@ import { Store, select } from "@ngrx/store";
 import * as CoursesAction from '../store/actions/actions'
 import * as fromCourses from '../store'
 import * as fromSelectors from '../store/selectors/course.selector'
+import * as appActions from '../../Shared/store/actions/app.actions'
+
 import { courseModel } from "../models/courses.model";
 import { takeWhile } from "rxjs/operators";
 
@@ -42,6 +44,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
             takeWhile(() => this.componentActive)).subscribe(
                 allcourses => {
                     this.allcourses = allcourses;
+                    this.store.dispatch(new appActions.HideSpinner(true));
                 });
 
        // this.store.select(fromSelectors.selectAllCourses);
@@ -54,7 +57,9 @@ export class CoursesComponent implements OnInit, OnDestroy {
     loadAllCourse() {
         //This will call the action and the ction will call the effects.. the effect will look for the ofType  and call the
         //load secuuess acction method...
+        this.store.dispatch(new appActions.ShowSpinner(true));
         this.store.dispatch(new CoursesAction.LoadAllCourses());
+       
     }
     editCourse(courseModelParam: courseModel) {
 

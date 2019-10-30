@@ -10,7 +10,6 @@ import { EffectsModule } from '@ngrx/effects';
 import { CourseEffects } from './store/effects/courses.effects';
 import { CommonModule } from '@angular/common';
 import { CoursesEdit } from './component/courses-edit.component';
-import { CourseReducer } from './store/reducers/courses.reducer';
 import { reducers } from './store';
 
 @NgModule({
@@ -19,9 +18,8 @@ import { reducers } from './store';
         CoursesEdit
   ],
     imports: [
-        CommonModule,
+       // CommonModule,
         SharedModule,
-     //   StoreModule.forFeature('courses', CourseReducer),
         StoreModule.forFeature('courses',reducers),
         EffectsModule.forFeature([CourseEffects]),
     RouterModule.forChild([

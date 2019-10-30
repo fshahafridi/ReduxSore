@@ -4,7 +4,7 @@ import { Action } from '@ngrx/store'
 export enum AppActionTypes {
     ChangeUserName = '[Header Component] ChangeUserName',
     ShowSpinner = '[Spinner Component] ShowSpinner',
-    HideSpinner = '[Spinner Component] HideSpinner',
+    HideSpinner = '[Hide Component] HideSpinner',
 
 }
 ;
@@ -23,11 +23,13 @@ export class HideSpinner implements Action {
     readonly type = AppActionTypes.HideSpinner;
     constructor(public payload: boolean) {
     }
+
 };
 
+
  
- 
-export type AppActions = ShowSpinner | HideSpinner | ChangeUserName;
+
+export type AppActions = ShowSpinner|HideSpinner | ChangeUserName;
 
 
 

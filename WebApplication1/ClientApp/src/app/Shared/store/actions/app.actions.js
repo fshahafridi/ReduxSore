@@ -4,7 +4,7 @@ var AppActionTypes;
 (function (AppActionTypes) {
     AppActionTypes["ChangeUserName"] = "[Header Component] ChangeUserName";
     AppActionTypes["ShowSpinner"] = "[Spinner Component] ShowSpinner";
-    AppActionTypes["HideSpinner"] = "[Spinner Component] HideSpinner";
+    AppActionTypes["HideSpinner"] = "[Hide Component] HideSpinner";
 })(AppActionTypes = exports.AppActionTypes || (exports.AppActionTypes = {}));
 ;
 var ChangeUserName = /** @class */ (function () {

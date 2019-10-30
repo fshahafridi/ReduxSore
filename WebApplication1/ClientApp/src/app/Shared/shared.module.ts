@@ -1,19 +1,21 @@
 import { NgModule, ModuleWithProviders } from "@angular/core";
 import { StoreModule } from "@ngrx/store";
-import { AppReducer } from "./store/reducer/app.reducer";
 import { HeaderComponent } from "./component/header.component";
-import { EffectsModule } from "@ngrx/effects";
+import { reducers } from './store';
+import { SpinnerComponent } from "./component/spinner.component";
+import { CommonModule } from "@angular/common";
+
 
 @NgModule({
     declarations: [
         HeaderComponent,
+        SpinnerComponent
     ],
     imports: [
-       //   StoreModule.forRoot(AppReducer),
-         // EffectsModule.forRoot([]),
+        CommonModule,
+        StoreModule.forFeature('sharedState', reducers),
     ],
-    exports: [HeaderComponent],
-   
+    exports: [HeaderComponent, SpinnerComponent, CommonModule],
     providers: []
 })
 export class SharedModule {
