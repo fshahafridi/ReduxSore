@@ -14,6 +14,11 @@ export const selectAllCourses = createSelector(
     getCourseListingState,
     courseSelectors.loadAllCourses
 );
+export const isLoading = createSelector(
+     getCourseListingState,
+    (state: CourseListingState) => state.isloading
+)
+
 
 
 

@@ -7,6 +7,7 @@ import * as appActions from '../../Shared/store/actions/app.actions'
 
 import { courseModel } from "../models/courses.model";
 import { takeWhile } from "rxjs/operators";
+import { Observable } from "rxjs";
 
 
 
@@ -16,10 +17,11 @@ import { takeWhile } from "rxjs/operators";
 })
 export class CoursesComponent implements OnInit, OnDestroy {
 
-    toggelCourse: boolean = false;
+   // allcourses$: Observable<courseModel[]>;
 
     allcourses: courseModel[];
     componentActive: boolean = true;
+    isLoading$: Observable<boolean>;
     constructor(private store: Store<fromCourses.State>) {
     }
 
@@ -31,6 +33,7 @@ export class CoursesComponent implements OnInit, OnDestroy {
         this.loadAllCourse();
 
 
+
     }
     ngOnDestroy(): void {
 
@@ -38,32 +41,34 @@ export class CoursesComponent implements OnInit, OnDestroy {
     }
 
     initStore() {
-        
 
+
+
+        this.isLoading$ = this.store.pipe(select(fromSelectors.isLoading))
+       // this.allcourses$=  this.store.pipe(select(fromSelectors.selectAllCourses));
         this.store.pipe(select(fromSelectors.selectAllCourses),
             takeWhile(() => this.componentActive)).subscribe(
                 allcourses => {
                     this.allcourses = allcourses;
-                    this.store.dispatch(new appActions.HideSpinner(true));
                 });
 
-       // this.store.select(fromSelectors.selectAllCourses);
-       
     }
 
-    ShowHide() {
-        this.store.dispatch(new CoursesAction.ShowCourses(true));
+    DeleteCourse(course: courseModel) {
+        this.store.dispatch(new CoursesAction.DeleteCourse(course.courseId));
     }
+
+    addNewCourse() {
+       var  CourseId = Math.floor(Math.random() * Math.floor(1000));
+        this.store.dispatch(new CoursesAction.AddCourse({ courseId: CourseId, courseName: "new Course", autherName: "Test Author" }));
+     }
     loadAllCourse() {
         //This will call the action and the ction will call the effects.. the effect will look for the ofType  and call the
         //load secuuess acction method...
-        this.store.dispatch(new appActions.ShowSpinner(true));
+        //   this.store.dispatch(new appActions.ShowSpinner(true));
         this.store.dispatch(new CoursesAction.LoadAllCourses());
-       
     }
     editCourse(courseModelParam: courseModel) {
-
-     
         this.store.dispatch(new CoursesAction.SetCurrentCourse(courseModelParam))
 
     }

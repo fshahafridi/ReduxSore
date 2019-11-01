@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { CourseService } from '../../services/course.service';
 import { Actions, Effect, ofType } from '@ngrx/effects';
 import * as CoursesAction from '../actions/actions';
-import { mergeMap, map } from 'rxjs/operators';
+import { mergeMap, map, delay } from 'rxjs/operators';
 import { courseModel} from '../../models/courses.model'
 
 
@@ -17,7 +17,7 @@ export class CourseEffects {
             this.courseService.getAllCourses().pipe(
             map((courses: courseModel[]) => (
                 new CoursesAction.LoadAllCoursesSuccess(courses["courses"])))
-        ))
+                , delay(4000)))
         
     )
 

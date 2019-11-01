@@ -14,19 +14,27 @@ export const courseAdapter = createEntityAdapter<courseModel>({
 
 const initialState: CourseListingState = courseAdapter.getInitialState({
 
-    selectedCourseId: null
+    selectedCourseId: null,
+    isloading: false
 
 });
 
 
 
-export function CourseReducer(state = initialState, action: CourseAction): CourseListingState{
+export function CourseReducer(state = initialState, action: CourseAction): CourseListingState {
     switch (action.type) {
 
         case CoursesActionTypes.LoadAllCoursesSuccess:
+            return courseAdapter.addAll(action.payload, { ...state, isloading: false });
 
-           // return state;
-            return courseAdapter.addAll(action.payload, state);
+        case CoursesActionTypes.LoadAllCourses:
+            return { ...state, isloading: true }
+
+        case CoursesActionTypes.AddCourse:
+            return courseAdapter.addOne(action.payload, { ...state, isloading: false });
+
+        case CoursesActionTypes.DeleteCourse:
+            return courseAdapter.removeOne(action.payload, { ...state, isloading: true });
 
         //case CoursesActionTypes.SetCurrentCourse:
         //    return {
@@ -40,10 +48,7 @@ export function CourseReducer(state = initialState, action: CourseAction): Cours
         //    return { 
         //        ...state, isCourseAvailable: action.payload
         //    }; 
-        //case CoursesActionTypes.AddCourse:
-        //    return {
-        //        ...state, allCoursers: action.payload
-        //    };
+
         //case CoursesActionTypes.RemoveCourse:
         //    return {
         //        ...state, selectedCourse: action.payload
@@ -60,8 +65,9 @@ const {
     selectEntities,
     selectAll,
     selectTotal,
-    } = courseAdapter.getSelectors();
+} = courseAdapter.getSelectors();
 
 
 export const loadAllCourses = selectAll;
 
+//export const isLoading= (state: CourseListingState) => state.isloading;

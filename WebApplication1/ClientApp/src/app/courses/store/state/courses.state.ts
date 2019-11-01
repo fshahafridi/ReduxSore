@@ -6,6 +6,8 @@ import { EntityState } from '@ngrx/entity';
 //Create State for the Listing Component only... we can add more properties...
 export interface CourseListingState extends  EntityState<courseModel> {
     selectedCourseId: number | null;
+    isloading: boolean;
+   
 }
 
 

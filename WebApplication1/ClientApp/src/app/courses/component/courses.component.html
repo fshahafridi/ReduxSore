@@ -6,10 +6,12 @@
 </head>
 <body>
 
-  <input type="button" (click)="ShowHide()" value="ShowHide" />
+  <input type="button" (click)="addNewCourse()" value="Add" />
   <br />
+  <div *ngIf="(isLoading$ | async)">
+    <app-spinner></app-spinner>
+  </div>
 
-  <app-spinner></app-spinner>
   <div>
     <table>
       <tr>
@@ -26,6 +28,7 @@
 
         </th>
       </tr>
+    <!--  <tr *ngFor="let course of allcourses$ |async">-->
       <tr *ngFor="let course of allcourses">
         <td>
           {{course.courseId}}
@@ -38,6 +41,7 @@
         </td>
         <td>
           <input type="button" value="Edit" (click)="editCourse(course)" />
+          <input type="button" value="Delete" (click)="DeleteCourse(course)" />
         </td>
       </tr>
     </table>

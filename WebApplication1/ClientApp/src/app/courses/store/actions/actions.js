@@ -4,8 +4,8 @@ var CoursesActionTypes;
 (function (CoursesActionTypes) {
     CoursesActionTypes["LoadAllCourses"] = "[Course Component] LoadCourses";
     CoursesActionTypes["LoadAllCoursesSuccess"] = "[Course Component] LoadCoursesSuccess";
-    CoursesActionTypes["AddCourse"] = "[Course Component] Add";
-    CoursesActionTypes["RemoveCourse"] = "[Course Component] Remove";
+    CoursesActionTypes["AddCourse"] = "[Course Component] Add Course";
+    CoursesActionTypes["DeleteCourse"] = "[Course Component] Delete";
     CoursesActionTypes["ShowCourses"] = "[Course Component] toggle";
     CoursesActionTypes["SetCurrentCourse"] = "[Course Component] Set Current Course";
     CoursesActionTypes["UpdateCourse"] = "[Course Component] Update Course";
@@ -57,12 +57,12 @@ var AddCourse = /** @class */ (function () {
     return AddCourse;
 }());
 exports.AddCourse = AddCourse;
-var RemoveCourse = /** @class */ (function () {
-    function RemoveCourse(payload) {
+var DeleteCourse = /** @class */ (function () {
+    function DeleteCourse(payload) {
         this.payload = payload;
-        this.type = CoursesActionTypes.RemoveCourse;
+        this.type = CoursesActionTypes.DeleteCourse;
     }
-    return RemoveCourse;
+    return DeleteCourse;
 }());
-exports.RemoveCourse = RemoveCourse;
+exports.DeleteCourse = DeleteCourse;
 //# sourceMappingURL=actions.js.map

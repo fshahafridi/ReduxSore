@@ -7,4 +7,5 @@ exports.getReferencesState = store_1.createFeatureSelector('courses');
 //select the course node from the store..
 exports.getCourseListingState = store_1.createSelector(exports.getReferencesState, function (state) { return state.courses; });
 exports.selectAllCourses = store_1.createSelector(exports.getCourseListingState, courseSelectors.loadAllCourses);
+exports.isLoading = store_1.createSelector(exports.getCourseListingState, function (state) { return state.isloading; });
 //# sourceMappingURL=course.selector.js.map

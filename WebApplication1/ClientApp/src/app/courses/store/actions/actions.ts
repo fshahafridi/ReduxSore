@@ -4,8 +4,8 @@ import { Action } from '@ngrx/store'
 export enum CoursesActionTypes {
     LoadAllCourses = '[Course Component] LoadCourses',
     LoadAllCoursesSuccess = '[Course Component] LoadCoursesSuccess',
-    AddCourse = '[Course Component] Add',
-    RemoveCourse = '[Course Component] Remove',
+    AddCourse = '[Course Component] Add Course',
+    DeleteCourse = '[Course Component] Delete',
     ShowCourses = '[Course Component] toggle',
     SetCurrentCourse = '[Course Component] Set Current Course',
     UpdateCourse = '[Course Component] Update Course'
@@ -39,12 +39,12 @@ export class ShowCourses implements Action {
   
 export class AddCourse implements Action {
     readonly type = CoursesActionTypes.AddCourse;
-    constructor(public payload: any) {
+    constructor(public payload: courseModel) {
     }
 }
-export class RemoveCourse implements Action {
-    readonly type = CoursesActionTypes.RemoveCourse;
-    constructor(public payload: any) {
+export class DeleteCourse implements Action {
+    readonly type = CoursesActionTypes.DeleteCourse;
+    constructor(public payload: number) {
     }
 }
 
@@ -56,6 +56,6 @@ export type CourseAction =
     LoadAllCourses |
     ShowCourses |
     AddCourse |
-    RemoveCourse;
+    DeleteCourse;
  
 
