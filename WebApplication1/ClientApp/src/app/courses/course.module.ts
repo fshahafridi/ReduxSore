@@ -11,6 +11,7 @@ import { CourseEffects } from './store/effects/courses.effects';
 import { CommonModule } from '@angular/common';
 import { CoursesEdit } from './component/courses-edit.component';
 import { reducers } from './store';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { reducers } from './store';
         CoursesEdit
   ],
     imports: [
-       // CommonModule,
+        CoreModule,
         SharedModule,
         StoreModule.forFeature('courses',reducers),
         EffectsModule.forFeature([CourseEffects]),

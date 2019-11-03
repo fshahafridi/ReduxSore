@@ -18,6 +18,11 @@ export const isLoading = createSelector(
      getCourseListingState,
     (state: CourseListingState) => state.isloading
 )
+export const getError = createSelector(
+    getCourseListingState,
+    (state: CourseListingState) => state.error
+)
+
 
 
 

@@ -15,6 +15,8 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools'
 import { environment } from '../environments/environment';
 import { SharedModule } from './shared/shared.module';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { CoreModule } from './core/core.module';
 
 
 @NgModule({
@@ -29,9 +31,11 @@ import { SharedModule } from './shared/shared.module';
         BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
         HttpClientModule,
         FormsModule,
+        InMemoryWebApiModule,
         StoreModule.forRoot({}),
         EffectsModule.forRoot([]),
         SharedModule.forRoot(),
+        CoreModule.forRoot(),
         StoreDevtoolsModule.instrument({
             name: 'Test Redux',
             maxAge: 25,

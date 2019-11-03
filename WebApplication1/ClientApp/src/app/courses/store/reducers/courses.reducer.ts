@@ -15,8 +15,8 @@ export const courseAdapter = createEntityAdapter<courseModel>({
 const initialState: CourseListingState = courseAdapter.getInitialState({
 
     selectedCourseId: null,
-    isloading: false
-
+    isloading: false,
+    error: ""
 });
 
 
@@ -28,10 +28,18 @@ export function CourseReducer(state = initialState, action: CourseAction): Cours
             return courseAdapter.addAll(action.payload, { ...state, isloading: false });
 
         case CoursesActionTypes.LoadAllCourses:
-            return { ...state, isloading: true }
+            return { ...state, isloading: true };
 
         case CoursesActionTypes.AddCourse:
+            return { ...state, isloading: true }
+
+
+        case CoursesActionTypes.AddCourseSuccess:
             return courseAdapter.addOne(action.payload, { ...state, isloading: false });
+
+        case CoursesActionTypes.AddCourseFailed:
+            return { ...state, isloading: false, error: action.errorPayload }
+
 
         case CoursesActionTypes.DeleteCourse:
             return courseAdapter.removeOne(action.payload, { ...state, isloading: true });

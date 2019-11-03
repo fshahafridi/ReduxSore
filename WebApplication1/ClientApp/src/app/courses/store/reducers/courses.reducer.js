@@ -20,7 +20,8 @@ exports.courseAdapter = entity_1.createEntityAdapter({
 });
 var initialState = exports.courseAdapter.getInitialState({
     selectedCourseId: null,
-    isloading: false
+    isloading: false,
+    error: ""
 });
 function CourseReducer(state, action) {
     if (state === void 0) { state = initialState; }
@@ -30,7 +31,11 @@ function CourseReducer(state, action) {
         case actions_1.CoursesActionTypes.LoadAllCourses:
             return __assign(__assign({}, state), { isloading: true });
         case actions_1.CoursesActionTypes.AddCourse:
+            return __assign(__assign({}, state), { isloading: true });
+        case actions_1.CoursesActionTypes.AddCourseSuccess:
             return exports.courseAdapter.addOne(action.payload, __assign(__assign({}, state), { isloading: false }));
+        case actions_1.CoursesActionTypes.AddCourseFailed:
+            return __assign(__assign({}, state), { isloading: false, error: action.errorPayload });
         case actions_1.CoursesActionTypes.DeleteCourse:
             return exports.courseAdapter.removeOne(action.payload, __assign(__assign({}, state), { isloading: true }));
         //case CoursesActionTypes.SetCurrentCourse:

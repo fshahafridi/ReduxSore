@@ -24,6 +24,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\app\core\core.module.ts" />
+    <None Remove="ClientApp\src\app\core\sevices\data.service.ts" />
+    <None Remove="ClientApp\src\app\core\sevices\httpInterceptor.ts" />
+    <None Remove="ClientApp\src\app\core\sevices\inmemorydb.service.ts" />
+    <None Remove="ClientApp\src\app\core\store\actions\core.actions.ts" />
+    <None Remove="ClientApp\src\app\core\store\index.ts" />
+    <None Remove="ClientApp\src\app\core\store\reducer\erro.reducer.ts" />
+    <None Remove="ClientApp\src\app\core\store\selectors\core.selector.ts" />
+    <None Remove="ClientApp\src\app\core\store\state\core.state.ts" />
     <None Remove="ClientApp\src\app\courses\component\courses-edit.component.ts" />
     <None Remove="ClientApp\src\app\courses\component\courses.component.ts" />
     <None Remove="ClientApp\src\app\courses\course.module.ts" />
@@ -45,6 +54,24 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\src\app\core\core.module.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\core\sevices\httpInterceptor.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\core\sevices\inmemorydb.service.ts" />
+    <TypeScriptCompile Include="ClientApp\src\app\core\store\actions\core.actions.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\core\store\index.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\core\store\reducer\erro.reducer.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\core\store\selectors\core.selector.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
+    <TypeScriptCompile Include="ClientApp\src\app\core\store\state\core.state.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
     <TypeScriptCompile Include="ClientApp\src\app\courses\component\courses-edit.component.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>

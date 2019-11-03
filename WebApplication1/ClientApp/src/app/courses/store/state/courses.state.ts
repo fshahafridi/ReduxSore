@@ -7,6 +7,7 @@ import { EntityState } from '@ngrx/entity';
 export interface CourseListingState extends  EntityState<courseModel> {
     selectedCourseId: number | null;
     isloading: boolean;
+    error:string
    
 }
 
